@@ -20,7 +20,7 @@ void EmptyLinkFunctionForGeneratedCodePacManFPS_init() {}
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), nullptr, FName(TEXT("/Script/PacManFPS")), false, false));
 			ReturnPackage->SetPackageFlags(PKG_CompiledIn | 0x00000000);
 			FGuid Guid;
-			Guid.A = 0x97F589DA;
+			Guid.A = 0xA21A99B3;
 			Guid.B = 0x4DE40857;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;

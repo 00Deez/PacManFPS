@@ -13,8 +13,21 @@ UCLASS()
 class PACMANFPS_API APacDotPickup : public APickup
 {
 	GENERATED_BODY()
+public :
+
+	APacDotPickup();
 	
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
 	
-	
-	
+private:
+	float RunningTime;
+	float InitialPosition;
+	float RandomOffset;
+
+	UPROPERTY(EditAnywhere)
+	float OscRate;
+
+	UPROPERTY(EditAnywhere)
+	float Amplitude;
 };
