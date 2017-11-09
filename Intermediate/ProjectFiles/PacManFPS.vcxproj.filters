@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\PacManFPS.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F7FDA55C-681C-4C4C-8096-4570D350EA5A}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\PacManFPS.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\PacManFPSEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{F3ACCF5A-0BBD-4046-A136-1419505815DB}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\PacManFPS">
+      <UniqueIdentifier>{7FE49715-9480-4EDE-A05E-DAA711B40534}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\PacManFPS\PacManFPS.Build.cs">
+      <Filter>Source\PacManFPS</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\PacManFPS\PacManFPS.cpp">
+      <Filter>Source\PacManFPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\PacManFPS\PacManFPS.h">
+      <Filter>Source\PacManFPS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\PacManFPS\PacManFPSCharacter.cpp">
+      <Filter>Source\PacManFPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\PacManFPS\PacManFPSCharacter.h">
+      <Filter>Source\PacManFPS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\PacManFPS\PacManFPSGameMode.cpp">
+      <Filter>Source\PacManFPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\PacManFPS\PacManFPSGameMode.h">
+      <Filter>Source\PacManFPS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\PacManFPS\PacManFPSHUD.cpp">
+      <Filter>Source\PacManFPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\PacManFPS\PacManFPSHUD.h">
+      <Filter>Source\PacManFPS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\PacManFPS\PacManFPSProjectile.cpp">
+      <Filter>Source\PacManFPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\PacManFPS\PacManFPSProjectile.h">
+      <Filter>Source\PacManFPS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\PacManFPS\Pickup.cpp">
+      <Filter>Source\PacManFPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\PacManFPS\Pickup.h">
+      <Filter>Source\PacManFPS</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\PacManFPS\PacDotPickup.h">
+      <Filter>Source\PacManFPS</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\PacManFPS\PacDotPickup.cpp">
+      <Filter>Source\PacManFPS</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
