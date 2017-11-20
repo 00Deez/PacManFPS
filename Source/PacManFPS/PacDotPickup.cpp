@@ -6,9 +6,20 @@
 #include "Engine/GameEngine.h"
 
 APacDotPickup::APacDotPickup() : RunningTime(0.0f), InitialPosition(GetActorLocation().Z), RandomOffset(FMath::RandRange(0, 3.14)) {
-
+	GetMesh()->SetSimulatePhysics(true);
 }
 
+void APacDotPickup::OnCollect_Implementation()
+{
+	Super::OnCollect_Implementation();
+
+	Destroy();
+}
+
+float APacDotPickup::GetPointValue()
+{
+	return PointValue;
+}
 
 void APacDotPickup::Tick(float DeltaTime)
 {

@@ -14,14 +14,41 @@ PRAGMA_DISABLE_OPTIMIZATION
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodePickup() {}
 // Cross Module References
-	PACMANFPS_API UClass* Z_Construct_UClass_APickup_NoRegister();
+	PACMANFPS_API UFunction* Z_Construct_UFunction_APickup_OnCollect();
 	PACMANFPS_API UClass* Z_Construct_UClass_APickup();
+	PACMANFPS_API UClass* Z_Construct_UClass_APickup_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	UPackage* Z_Construct_UPackage__Script_PacManFPS();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 // End Cross Module References
+	static FName NAME_APickup_OnCollect = FName(TEXT("OnCollect"));
+	void APickup::OnCollect()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_APickup_OnCollect),NULL);
+	}
 	void APickup::StaticRegisterNativesAPickup()
 	{
+		UClass* Class = APickup::StaticClass();
+		static const TNameNativePtrPair<ANSICHAR> AnsiFuncs[] = {
+			{ "OnCollect", (Native)&APickup::execOnCollect },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, AnsiFuncs, ARRAY_COUNT(AnsiFuncs));
+	}
+	UFunction* Z_Construct_UFunction_APickup_OnCollect()
+	{
+		UObject* Outer = Z_Construct_UClass_APickup();
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("OnCollect"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), nullptr, (EFunctionFlags)0x08020C00, 65535);
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Pickup.h"));
+#endif
+		}
+		return ReturnFunction;
 	}
 	UClass* Z_Construct_UClass_APickup_NoRegister()
 	{
@@ -40,8 +67,10 @@ void EmptyLinkFunctionForGeneratedCodePickup() {}
 				UObjectForceRegistration(OuterClass);
 				OuterClass->ClassFlags |= (EClassFlags)0x20900080u;
 
+				OuterClass->LinkChild(Z_Construct_UFunction_APickup_OnCollect());
 
 				UProperty* NewProp_PickupMesh = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("PickupMesh"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(PickupMesh, APickup), 0x00400000000a001d, Z_Construct_UClass_UStaticMeshComponent_NoRegister());
+				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_APickup_OnCollect(), "OnCollect"); // 506871045
 				static TCppClassTypeInfo<TCppClassTypeTraits<APickup> > StaticCppClassTypeInfo;
 				OuterClass->SetCppTypeInfo(&StaticCppClassTypeInfo);
 				OuterClass->StaticLink();
@@ -59,7 +88,7 @@ void EmptyLinkFunctionForGeneratedCodePickup() {}
 		check(OuterClass->GetClass());
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APickup, 3427578768);
+	IMPLEMENT_CLASS(APickup, 248067378);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_APickup(Z_Construct_UClass_APickup, &APickup::StaticClass, TEXT("/Script/PacManFPS"), TEXT("APickup"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(APickup);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

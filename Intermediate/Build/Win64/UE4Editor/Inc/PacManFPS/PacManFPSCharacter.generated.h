@@ -13,8 +13,46 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define PACMANFPS_PacManFPSCharacter_generated_h
 
-#define PacManFPS_Source_PacManFPS_PacManFPSCharacter_h_14_RPC_WRAPPERS
-#define PacManFPS_Source_PacManFPS_PacManFPSCharacter_h_14_RPC_WRAPPERS_NO_PURE_DECLS
+#define PacManFPS_Source_PacManFPS_PacManFPSCharacter_h_14_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execCollectPickups) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		this->CollectPickups(); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execUpdatePoints) \
+	{ \
+		P_GET_PROPERTY(UFloatProperty,Z_Param_points); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		this->UpdatePoints(Z_Param_points); \
+		P_NATIVE_END; \
+	}
+
+
+#define PacManFPS_Source_PacManFPS_PacManFPSCharacter_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execCollectPickups) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		this->CollectPickups(); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execUpdatePoints) \
+	{ \
+		P_GET_PROPERTY(UFloatProperty,Z_Param_points); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		this->UpdatePoints(Z_Param_points); \
+		P_NATIVE_END; \
+	}
+
+
 #define PacManFPS_Source_PacManFPS_PacManFPSCharacter_h_14_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAPacManFPSCharacter(); \
@@ -67,7 +105,9 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APacManFPSCharacter); \
 	FORCEINLINE static uint32 __PPO__VR_MuzzleLocation() { return STRUCT_OFFSET(APacManFPSCharacter, VR_MuzzleLocation); } \
 	FORCEINLINE static uint32 __PPO__FirstPersonCameraComponent() { return STRUCT_OFFSET(APacManFPSCharacter, FirstPersonCameraComponent); } \
 	FORCEINLINE static uint32 __PPO__R_MotionController() { return STRUCT_OFFSET(APacManFPSCharacter, R_MotionController); } \
-	FORCEINLINE static uint32 __PPO__L_MotionController() { return STRUCT_OFFSET(APacManFPSCharacter, L_MotionController); }
+	FORCEINLINE static uint32 __PPO__L_MotionController() { return STRUCT_OFFSET(APacManFPSCharacter, L_MotionController); } \
+	FORCEINLINE static uint32 __PPO__CollectionSphere() { return STRUCT_OFFSET(APacManFPSCharacter, CollectionSphere); } \
+	FORCEINLINE static uint32 __PPO__CharacterPoints() { return STRUCT_OFFSET(APacManFPSCharacter, CharacterPoints); }
 
 
 #define PacManFPS_Source_PacManFPS_PacManFPSCharacter_h_11_PROLOG

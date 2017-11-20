@@ -10,6 +10,11 @@
 #include "HeadMountedDisplayFunctionLibrary.h"
 #include "Kismet/GameplayStatics.h"
 #include "MotionControllerComponent.h"
+#include "Components/SphereComponent.h"
+#include "PacDotPickup.h"
+#include "Pickup.h"
+#include "Engine.h"
+
 
 DEFINE_LOG_CATEGORY_STATIC(LogFPChar, Warning, All);
 
@@ -81,6 +86,18 @@ APacManFPSCharacter::APacManFPSCharacter()
 
 	// Uncomment the following line to turn motion controllers on by default:
 	//bUsingMotionControllers = true;
+
+	// Create the collection sphere
+	CollectionSphere = CreateDefaultSubobject<USphereComponent>(TEXT("CollectionSphere"));
+	CollectionSphere->AttachTo(RootComponent);
+	CollectionSphere->SetSphereRadius(100.0f);
+}
+
+void APacManFPSCharacter::Tick(float DeltaTime)
+{
+	CollectPickups();
+	GEngine->AddOnScreenDebugMessage(-1, 0.5f, FColor::Yellow, FString::FromInt(CharacterPoints));
+
 }
 
 void APacManFPSCharacter::BeginPlay()
@@ -294,4 +311,40 @@ bool APacManFPSCharacter::EnableTouchscreenMovement(class UInputComponent* Playe
 		//PlayerInputComponent->BindTouch(EInputEvent::IE_Repeat, this, &APacManFPSCharacter::TouchUpdate);
 	}
 	return bResult;
+}
+
+void APacManFPSCharacter::CollectPickups()
+{
+	// Get all overlapping Actors and Store them in an array
+	TArray<AActor*> CollectedActors;
+	CollectionSphere->GetOverlappingActors(CollectedActors);
+
+	// Keep track of collected points
+	float CollectedPoints = 0;
+
+	// For each Actor we collected
+	for (int32 iCollected = 0; iCollected < CollectedActors.Num(); ++iCollected)
+	{
+		// Cast the actor to APickup
+		APickup* const TestPickup = Cast<APickup>(CollectedActors[iCollected]);
+		// If the cast is successfull and the pickup is valid and active 
+		if (TestPickup && !TestPickup->IsPendingKill())
+		{
+			// Call the pickups WasCollected function
+			TestPickup->OnCollect();
+			// Check to see if pickup is battery
+			APacDotPickup* const TestPacDot = Cast<APacDotPickup>(TestPickup);
+			if (TestPacDot) {
+				CollectedPoints += TestPacDot->GetPointValue();
+			}
+		}
+	}
+
+	// Update Power
+	UpdatePoints(CollectedPoints);
+}
+
+void APacManFPSCharacter::UpdatePoints(float points)
+{
+	CharacterPoints += points;
 }

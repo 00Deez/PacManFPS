@@ -13,8 +13,31 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define PACMANFPS_Pickup_generated_h
 
-#define PacManFPS_Source_PacManFPS_Pickup_h_12_RPC_WRAPPERS
-#define PacManFPS_Source_PacManFPS_Pickup_h_12_RPC_WRAPPERS_NO_PURE_DECLS
+#define PacManFPS_Source_PacManFPS_Pickup_h_12_RPC_WRAPPERS \
+	virtual void OnCollect_Implementation(); \
+ \
+	DECLARE_FUNCTION(execOnCollect) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		this->OnCollect_Implementation(); \
+		P_NATIVE_END; \
+	}
+
+
+#define PacManFPS_Source_PacManFPS_Pickup_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execOnCollect) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		this->OnCollect_Implementation(); \
+		P_NATIVE_END; \
+	}
+
+
+#define PacManFPS_Source_PacManFPS_Pickup_h_12_EVENT_PARMS
+#define PacManFPS_Source_PacManFPS_Pickup_h_12_CALLBACK_WRAPPERS
 #define PacManFPS_Source_PacManFPS_Pickup_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAPickup(); \
@@ -63,12 +86,16 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APickup); \
 	FORCEINLINE static uint32 __PPO__PickupMesh() { return STRUCT_OFFSET(APickup, PickupMesh); }
 
 
-#define PacManFPS_Source_PacManFPS_Pickup_h_9_PROLOG
+#define PacManFPS_Source_PacManFPS_Pickup_h_9_PROLOG \
+	PacManFPS_Source_PacManFPS_Pickup_h_12_EVENT_PARMS
+
+
 #define PacManFPS_Source_PacManFPS_Pickup_h_12_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	PacManFPS_Source_PacManFPS_Pickup_h_12_PRIVATE_PROPERTY_OFFSET \
 	PacManFPS_Source_PacManFPS_Pickup_h_12_RPC_WRAPPERS \
+	PacManFPS_Source_PacManFPS_Pickup_h_12_CALLBACK_WRAPPERS \
 	PacManFPS_Source_PacManFPS_Pickup_h_12_INCLASS \
 	PacManFPS_Source_PacManFPS_Pickup_h_12_STANDARD_CONSTRUCTORS \
 public: \
@@ -80,6 +107,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	PacManFPS_Source_PacManFPS_Pickup_h_12_PRIVATE_PROPERTY_OFFSET \
 	PacManFPS_Source_PacManFPS_Pickup_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+	PacManFPS_Source_PacManFPS_Pickup_h_12_CALLBACK_WRAPPERS \
 	PacManFPS_Source_PacManFPS_Pickup_h_12_INCLASS_NO_PURE_DECLS \
 	PacManFPS_Source_PacManFPS_Pickup_h_12_ENHANCED_CONSTRUCTORS \
 private: \

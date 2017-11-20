@@ -61,7 +61,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APacDotPickup); \
 
 #define PacManFPS_Source_PacManFPS_PacDotPickup_h_15_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__OscRate() { return STRUCT_OFFSET(APacDotPickup, OscRate); } \
-	FORCEINLINE static uint32 __PPO__Amplitude() { return STRUCT_OFFSET(APacDotPickup, Amplitude); }
+	FORCEINLINE static uint32 __PPO__Amplitude() { return STRUCT_OFFSET(APacDotPickup, Amplitude); } \
+	FORCEINLINE static uint32 __PPO__PointValue() { return STRUCT_OFFSET(APacDotPickup, PointValue); }
 
 
 #define PacManFPS_Source_PacManFPS_PacDotPickup_h_12_PROLOG

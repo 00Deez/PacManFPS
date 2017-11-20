@@ -26,6 +26,10 @@ public:
 	// Returns the mesh for pickup
 	FORCEINLINE class UStaticMeshComponent* GetMesh() const { return PickupMesh; }
 
+	UFUNCTION(BlueprintNativeEvent)
+	void OnCollect();
+	virtual void OnCollect_Implementation();
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

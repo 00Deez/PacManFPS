@@ -12,20 +12,22 @@ APickup::APickup()
 
 	PickupMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("PickupMesh"));
 	RootComponent = PickupMesh;
-
-}
-
-// Called when the game starts or when spawned
-void APickup::BeginPlay()
-{
-	Super::BeginPlay();
-	
 }
 
 // Called every frame
 void APickup::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
+void APickup::OnCollect_Implementation() {
+	// Log a debug message
+	FString PickupDebugString = GetName();
+	UE_LOG(LogClass, Log, TEXT("You have collected %s"), *PickupDebugString);
+}
+
+// Called when the game starts or when spawned
+void APickup::BeginPlay()
+{
+	Super::BeginPlay();
+}

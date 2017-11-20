@@ -13,6 +13,8 @@ class APacManFPSCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
+	virtual void Tick(float DeltaTime) override;
+
 	/** Pawn mesh: 1st person view (arms; seen only by self) */
 	UPROPERTY(VisibleDefaultsOnly, Category=Mesh)
 	class USkeletalMeshComponent* Mesh1P;
@@ -44,6 +46,10 @@ class APacManFPSCharacter : public ACharacter
 	/** Motion controller (left hand) */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	class UMotionControllerComponent* L_MotionController;
+
+	/** Collection Sphere */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	class USphereComponent* CollectionSphere;
 
 public:
 	APacManFPSCharacter();
@@ -119,6 +125,9 @@ protected:
 	void TouchUpdate(const ETouchIndex::Type FingerIndex, const FVector Location);
 	TouchData	TouchItem;
 	
+	UFUNCTION(BlueprintCallable, Category = "Points")
+	void UpdatePoints(float points);
+
 protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(UInputComponent* InputComponent) override;
@@ -132,11 +141,18 @@ protected:
 	 */
 	bool EnableTouchscreenMovement(UInputComponent* InputComponent);
 
+	// Called when we press a key to collect any pickups inside the CollectionSphere
+	UFUNCTION(BlueprintCallable, Category = "Pickups")
+	void CollectPickups();
 public:
 	/** Returns Mesh1P subobject **/
 	FORCEINLINE class USkeletalMeshComponent* GetMesh1P() const { return Mesh1P; }
 	/** Returns FirstPersonCameraComponent subobject **/
 	FORCEINLINE class UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
-
+	/** Returns CollectionSphere subobject */
+	FORCEINLINE class USphereComponent* GetCollectionSphere() const { return CollectionSphere; }
+private:
+	UPROPERTY(VisibleAnywhere, Category = "Points")
+	float CharacterPoints;
 };
 
