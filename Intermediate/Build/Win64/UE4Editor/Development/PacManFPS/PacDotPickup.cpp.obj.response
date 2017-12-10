@@ -24,9 +24,9 @@
 /wd4838
 /w44668
 /I "A:\Program Files\Epic Games\UE_4.17\Engine\Source"
-/I "A:\Unreal Projects\PacManFPS\Source"
-/I "A:\Unreal Projects\PacManFPS\Intermediate\Build\Win64\UE4Editor\Inc\PacManFPS"
-/I "A:\Unreal Projects\PacManFPS\Source\PacManFPS"
+/I A:\Documents\pacman\PacManFPS\Source
+/I A:\Documents\pacman\PacManFPS\Intermediate\Build\Win64\UE4Editor\Inc\PacManFPS
+/I A:\Documents\pacman\PacManFPS\Source\PacManFPS
 /I "A:\Program Files\Epic Games\UE_4.17\Engine\Source\Runtime\Core\Public"
 /I "A:\Program Files\Epic Games\UE_4.17\Engine\Source\Runtime\Core\Public\Internationalization"
 /I "A:\Program Files\Epic Games\UE_4.17\Engine\Source\Runtime\Core\Public\Async"
@@ -356,9 +356,9 @@
 /FI"A:\Program Files\Epic Games\UE_4.17\Engine\Intermediate\Build\Win64\UE4Editor\Development\Engine\SharedPCH.Engine.h"
 /Yu"A:\Program Files\Epic Games\UE_4.17\Engine\Intermediate\Build\Win64\UE4Editor\Development\Engine\SharedPCH.Engine.h"
 /Fp"A:\Program Files\Epic Games\UE_4.17\Engine\Intermediate\Build\Win64\UE4Editor\Development\Engine\SharedPCH.Engine.h.pch"
-"A:\Unreal Projects\PacManFPS\Source\PacManFPS\PacDotPickup.cpp"
-/FI"A:\Unreal Projects\PacManFPS\Intermediate\Build\Win64\UE4Editor\Development\PacManFPS\Definitions.PacManFPS.h"
-/Fo"A:\Unreal Projects\PacManFPS\Intermediate\Build\Win64\UE4Editor\Development\PacManFPS\PacDotPickup.cpp.obj"
+"A:\Documents\pacman\PacManFPS\Source\PacManFPS\PacDotPickup.cpp"
+/FI"A:\Documents\pacman\PacManFPS\Intermediate\Build\Win64\UE4Editor\Development\PacManFPS\Definitions.PacManFPS.h"
+/Fo"A:\Documents\pacman\PacManFPS\Intermediate\Build\Win64\UE4Editor\Development\PacManFPS\PacDotPickup.cpp.obj"
 /TP
 /GR-
 /W4

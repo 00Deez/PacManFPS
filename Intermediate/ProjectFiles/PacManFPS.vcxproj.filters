@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\PacManFPS.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{F7FDA55C-681C-4C4C-8096-4570D350EA5A}</UniqueIdentifier>
+      <UniqueIdentifier>{82CAA5B8-1CFE-47AA-9BE3-0A5E7DE99872}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\PacManFPS.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{F3ACCF5A-0BBD-4046-A136-1419505815DB}</UniqueIdentifier>
+      <UniqueIdentifier>{210D79B5-1AD9-4F50-8B7D-6D298617E978}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,8 +30,14 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\PacManFPS">
-      <UniqueIdentifier>{7FE49715-9480-4EDE-A05E-DAA711B40534}</UniqueIdentifier>
+      <UniqueIdentifier>{56E14ED0-6912-4D05-9B87-BD5BADB61331}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\PacManFPS\PacDotPickup.cpp">
+      <Filter>Source\PacManFPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\PacManFPS\PacDotPickup.h">
+      <Filter>Source\PacManFPS</Filter>
+    </ClInclude>
     <None Include="..\..\Source\PacManFPS\PacManFPS.Build.cs">
       <Filter>Source\PacManFPS</Filter>
     </None>
@@ -71,14 +77,26 @@
     <ClInclude Include="..\..\Source\PacManFPS\Pickup.h">
       <Filter>Source\PacManFPS</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\Source\PacManFPS\PacDotPickup.h">
+    <ClCompile Include="..\..\Source\PacManFPS\RedGhost.cpp">
+      <Filter>Source\PacManFPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\PacManFPS\RedGhost.h">
+      <Filter>Source\PacManFPS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\PacManFPS\RedGhostController.cpp">
+      <Filter>Source\PacManFPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\PacManFPS\RedGhostController.h">
       <Filter>Source\PacManFPS</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\PacManFPS\PacDotPickup.cpp">
+    <ClInclude Include="..\..\Source\PacManFPS\PacManVertice.h">
+      <Filter>Source\PacManFPS</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\PacManFPS\PacManVertice.cpp">
       <Filter>Source\PacManFPS</Filter>
     </ClCompile>
   </ItemGroup>
